@@ -24,4 +24,12 @@ public class Dog implements Comparable<Dog> {
     public int compareTo(Dog other) {
         return Integer.compare(this.weight, other.weight);
     }
+
+    @Override
+    public String toString() {
+        return "Dog{" +
+            "breed='" + this.breed + "'," +
+            "weight=" + this.weight + "," +
+            "}";
+    }
 }

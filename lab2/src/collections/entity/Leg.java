@@ -26,4 +26,13 @@ public class Leg {
     public void setFromAirport(String newFromAirport) { this.fromAirport = newFromAirport; }
     public void setToAirport(String newToAirport) { this.toAirport = newToAirport; }
     public void setDate(Date newDate) { this.date = newDate; }
+
+    @Override
+    public String toString() {
+        return "Leg{" +
+            "fromAirport='" + this.fromAirport + "'," +
+            "toAirport='" + this.toAirport + "'," +
+            "date='" + this.date + "'," +
+            "}";
+    }
 }

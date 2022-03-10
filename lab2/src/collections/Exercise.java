@@ -1,5 +1,3 @@
-package collections;
-
 import java.util.*;
 import java.util.stream.Collectors;
 import collections.entity.*;
@@ -54,4 +52,50 @@ public class Exercise {
             .collect(Collectors.toList());
     }
 
+    public static void main(String... args) {
+        // T0)
+        List<Integer> nums = new ArrayList<Integer>();
+        nums.add(0);
+        Exercise.pushFront(nums, 1);
+        System.out.println(nums);
+
+        // T1)
+        System.out.println(Exercise.getAt(nums, 1));
+        System.out.println(Exercise.getAt(nums, 2));
+
+        // T2)
+        nums.add(0);
+        System.out.println(nums);
+        Exercise.removeThird((ArrayList) nums);
+        System.out.println(nums);
+
+        // T3)
+        System.out.println(Exercise.find(nums, 1));
+        System.out.println(Exercise.find(nums, 2));
+
+        // T4)
+        List<Dog> dogs = new ArrayList<Dog>();
+        dogs.add(new Dog("Husky", 15));
+        dogs.add(new Dog("Chihuahua", 7));
+        Exercise.sort((ArrayList) dogs);
+        System.out.println(dogs);
+
+        // T5)
+        Exercise.replaceSecond((ArrayList) nums, 1);
+        System.out.println(nums);
+
+        // T6)
+        Map<String, Integer> pairs = new HashMap<String, Integer>();
+        pairs.put("a", 1);
+        pairs.put("b", 2);
+        pairs.put("c", 3);
+        System.out.println(Exercise.countPairs(pairs));
+
+        // T7)
+        List<Leg> legs = new ArrayList<Leg>();
+        legs.add(new Leg("LSBF", "ASDF", Calendar.getInstance().getTime()));
+        legs.add(new Leg("LKJH", "ASDF", Calendar.getInstance().getTime()));
+        legs.add(new Leg("LKJH", "LSBF", Calendar.getInstance().getTime()));
+        System.out.println(Exercise.getLegs(legs, "LSBF"));
+    }
 }
