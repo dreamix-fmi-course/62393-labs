@@ -1,4 +1,4 @@
-package collections.entity;
+package lab2.collections.entity;
 
 import java.util.*;
 

@@ -1,6 +1,6 @@
 import java.util.*;
 import java.util.stream.Collectors;
-import collections.entity.*;
+import lab2.collections.entity.*;
 
 public class Exercise {
 
@@ -16,7 +16,7 @@ public class Exercise {
 
     // T2) Write a method to remove the third element from an array list.
     public static <T> void removeThird(ArrayList<T> list) {
-        if (list.size() > 0) list.remove(2);
+        if (list.size() >= 3) list.remove(2);
     }
 
     // T3) Write a method to search an element in a list.
