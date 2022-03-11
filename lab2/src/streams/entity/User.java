@@ -16,9 +16,11 @@ public class User {
         this.orders = orders;
     }
 
+    public User(Order... orders) {
+        this.orders = Arrays.asList(orders);
+    }
+
     public List<Order> getOrders() { return this.orders; }
     
     public void setOrders(List<Order> newOrders) { this.orders = newOrders; }
-
-    public void addOrder(Order order) { this.orders.add(order); }
 }

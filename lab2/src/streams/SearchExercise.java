@@ -3,11 +3,13 @@ package lab2.streams;
 import lab2.streams.entity.Order;
 import lab2.streams.entity.OrderLine;
 import lab2.streams.entity.User;
+import lab2.streams.vo.*;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.math.BigDecimal;
 
 import static java.util.stream.Collectors.toList;
 
@@ -19,11 +21,18 @@ public class SearchExercise {
      * @return List<Order>
      */
     public List<Order> getActiveOrders(User user) {
-        return null;
+        return user.getOrders()
+            .stream()
+            .filter(order -> order.getStatus() == OrderStatus.ACTIVE)
+            .collect(toList());
     }
 
     public List<Order> getActiveOrdersByIteration(User user) {
-        return null;
+        List<Order> activeOrders = new ArrayList<Order>();
+        for (Order order : user.getOrders()) {
+            if (order.getStatus() == OrderStatus.ACTIVE) activeOrders.add(order);
+        }
+        return activeOrders;
     }
 
     /**
@@ -33,10 +42,15 @@ public class SearchExercise {
      * @return Order
      */
     public Order getOrderById(List<Order> orders, long orderId) {
-        return null;
+        return orders.stream()
+            .filter(o -> o.getId() == orderId)
+            .findFirst().orElse(null);
     }
 
     public Order getOrderByIdIteration(List<Order> orders, long orderId) {
+        for (Order o : orders) {
+            if (o.getId() == orderId) return o;
+        }
         return null;
     }
 
@@ -47,21 +61,26 @@ public class SearchExercise {
      * @return List<Order>
      */
     public List<Order> getOrdersThatHaveItemDescription(User user, String description) {
-        return null;
+        return user.getOrders().stream()
+            .filter(o -> o.getOrderLines().stream()
+                    .anyMatch(l -> l.getItem().getDescription().equals(description)))
+            .collect(toList());
     }
 
     /**
      * @return true if customer has at least one order with status ACTIVE
      */
     public boolean hasActiveOrders(User user) {
-        return false;
+        return user.getOrders().stream()
+            .anyMatch(o -> o.getStatus() == OrderStatus.ACTIVE);
     }
 
     /**
      * Return true if inside the Order we don't have OrderLine with special offer
      */
     public boolean canBeReturned(Order order) {
-        return false;
+        return !order.getOrderLines().stream()
+            .anyMatch(l -> l.getSpecialOffer());
     }
 
     /**
@@ -70,6 +89,7 @@ public class SearchExercise {
      * @return
      */
     public Optional<Order> getMaxPriceOrder(User user) {
-        return null;
+        return user.getOrders().stream()
+            .max((o1, o2) -> o1.getTotalPrice().compareTo(o2.getTotalPrice()));
     }
 }

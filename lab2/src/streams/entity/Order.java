@@ -12,7 +12,7 @@ import lab2.streams.vo.*;
  * getters, setters, toString, isActive
  */
 public class Order {
-    private UUID id;
+    private Long id;
     private OrderStatus status;
     private List<OrderLine> orderLines;
     private Date creationDate;
@@ -22,8 +22,8 @@ public class Order {
     private User user;
 
     public Order() {
-        this.id = UUID.randomUUID();
-        this.status = OrderStatus.DRAFT;
+        this.id = null;
+        this.status = OrderStatus.INACTIVE;
         this.orderLines = new ArrayList<OrderLine>();
         this.creationDate = Calendar.getInstance().getTime();
         this.totalPrice = BigDecimal.ZERO;
@@ -37,7 +37,7 @@ public class Order {
         this.status = status;
     }
 
-    public Order(UUID id) {
+    public Order(long id) {
         this();
         this.id = id;
     }
@@ -47,7 +47,7 @@ public class Order {
         this.orderLines = Arrays.asList(orderLines);
     }
 
-    public UUID getId() { return this.id; }
+    public Long getId() { return this.id; }
     public OrderStatus getStatus() { return this.status; }
     public List<OrderLine> getOrderLines() { return this.orderLines; }
     public Date getCreationDate() { return this.creationDate; }
@@ -56,7 +56,7 @@ public class Order {
     public Date getDeliveryDueDate() { return this.deliveryDueDate; }
     public User getUser() { return this.user; }
 
-    public void setId(UUID newId) { this.id = newId; }
+    public void setId(long newId) { this.id = newId; }
     public void setStatus(OrderStatus newStatus) { this.status = newStatus; }
     public void setOrderLines(List<OrderLine> newOrderLines) { this.orderLines = newOrderLines; }
     public void setCreationDate(Date newCreationDate) { this.creationDate = newCreationDate; }
@@ -73,7 +73,7 @@ public class Order {
     public String toString() {
         StringBuilder sb = new StringBuilder(); 
 
-        sb.append(String.format("ID: %s", this.id));
+        sb.append(String.format("ID: %d", this.id));
         sb.append(String.format("Status: %s", this.status));
         sb.append("Order lines:");
         this.orderLines.forEach(line -> sb.append(String.format("%5s", line)));
