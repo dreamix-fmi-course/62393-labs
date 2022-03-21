@@ -32,7 +32,7 @@ public class ExecutableFile extends File {
 
     @Override
     public String getInfo() {
-        String info = "Name: \"" + this.location + this.name + "\"" + (this.isDeleted ? " DELETED" : "") + "\n"
+        String info = "Name: \"" + this.getPath() + "\"" + (this.isDeleted ? " DELETED" : "") + "\n"
             + "Creation date: " + this.creationDate + "\n"
             + "Last execution date: " + this.lastExecutionDate + "\n"
             + "Required resources:";

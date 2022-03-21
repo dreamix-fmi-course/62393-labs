@@ -31,7 +31,7 @@ public class ContentFile extends File {
 
     @Override
     public String getInfo() {
-        return "Name: \"" + this.location + this.name + "\"" + (this.isDeleted ? " DELETED" : "") + "\n" 
+        return "Name: \"" + this.getPath() + "\"" + (this.isDeleted ? " DELETED" : "") + "\n" 
             + "Creation date: " + this.creationDate + "\n"
             + "Last modification date: " + this.lastModiciationDate;
     }

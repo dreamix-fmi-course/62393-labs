@@ -12,7 +12,7 @@ public abstract class File {
     protected boolean isDeleted;
 
     public File(String name, String location) {
-        this.name = name;
+        this.setName(name);
         this.setLocation(location);
         this.creationDate = LocalDate.now();
         this.isDeleted = false;
@@ -22,9 +22,10 @@ public abstract class File {
     public String getLocation() { return this.location; }
     public LocalDate getCreationDate() { return this.creationDate; }
     public boolean isDeleted() { return this.isDeleted; }
+    public String getPath() { return this.location + this.name; }
 
     private void setName(String newName) throws IllegalArgumentException {
-        if (newName == null || newName.trim().isEmpty() || !newName.matches("^[\\w\\-.]+$")) { 
+        if (newName == null || newName.trim().isEmpty() || !newName.matches("^[\\w\\-.]+$") || newName.contains("/")) { 
             throw new IllegalArgumentException("Invalid file name \"" + newName + "\"");
         }
         this.name = newName;
@@ -34,7 +35,7 @@ public abstract class File {
         if (newLocation == null || !newLocation.matches("^/([\\w\\-.]+/?)*$")) { 
             throw new IllegalArgumentException("Invalid path \"" + newLocation + "\""); 
         }
-        this.location = (newLocation.charAt(newLocation.length() - 1) == '/' ? newLocation : newLocation + '/');
+        this.location = (newLocation.charAt(newLocation.length() - 1) == '/' ? newLocation : newLocation + "/");
     }
 
     public File(File other) {
@@ -58,8 +59,8 @@ public abstract class File {
         return "File {" +
             "name=\"" + this.name + "\", " +
             "location=\"" + this.location + "\", " +
-            "name=\"" + this.creationDate + "\", " +
-            "name=" + this.isDeleted +
+            "creationDate=\"" + this.creationDate + "\", " +
+            "isDeleted=" + this.isDeleted +
         "}";
     }
 }
