@@ -25,6 +25,18 @@ public class User {
         return Objects.equals(id, user.id);
     }
 
+    public void setUserName(String newUserName) { this.userName = newUserName; }
+    public void setEmail(String newEmail) { this.email = newEmail; }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(id, userName, email);

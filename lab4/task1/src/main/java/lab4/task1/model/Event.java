@@ -21,12 +21,26 @@ public class Event {
         this.description = description;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Event event = (Event) o;
         return Objects.equals(eventId, event.eventId);
+    }
+
+    @Override
+    public String toString() {
+        return "Event{" +
+                "eventId=" + eventId +
+                ", name='" + name + '\'' +
+                ", date=" + date +
+                ", description='" + description + '\'' +
+                '}';
     }
 
     @Override
