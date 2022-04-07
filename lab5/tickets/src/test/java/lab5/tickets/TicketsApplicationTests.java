@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @SpringBootTest
-class Task1ApplicationTests {
+class TicketsApplicationTests {
 
 	@Autowired
 	private EventService eventService;

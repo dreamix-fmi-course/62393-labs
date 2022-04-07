@@ -31,8 +31,8 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public void createTicket(Ticket u) throws Exception {
-        int maxRow = appConfig.getEventConfig().getMaximumRow();
-        int maxSeat = appConfig.getEventConfig().getMaximumSeat();
+        int maxRow = appConfig.getEvent().getMaximumRow();
+        int maxSeat = appConfig.getEvent().getMaximumSeat();
 
         if (u.getEvent().getDate().toLocalDate().compareTo(LocalDate.now()) < 0 ||
             u.getPrice().compareTo(BigDecimal.ZERO) < 0 ||
