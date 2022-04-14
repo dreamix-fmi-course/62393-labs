@@ -3,11 +3,11 @@ package lab6.tickets.repository;
 import lab6.tickets.model.Ticket;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
 
 @Repository
 public class TicketRepositoryImpl implements TicketRepository {
@@ -15,7 +15,7 @@ public class TicketRepositoryImpl implements TicketRepository {
 
     @Override
     public void createTicket(Ticket u) {
-        this.tickets.put(u.getTicketId(), u);
+        this.tickets.put(u.getId(), u);
     }
 
     @Override
@@ -30,14 +30,14 @@ public class TicketRepositoryImpl implements TicketRepository {
 
     @Override
     public void updateTicket(Ticket ticket) {
-        if (!this.tickets.containsKey(ticket.getTicketId())) {
+        if (!this.tickets.containsKey(ticket.getId())) {
             throw new RuntimeException("Ticket with such id doesn't exist");
         }
-        this.tickets.replace(ticket.getTicketId(), ticket);
+        this.tickets.replace(ticket.getId(), ticket);
     }
 
     @Override
     public List<Ticket> getAllTickets() {
-        return this.tickets.values().stream().collect(Collectors.toList());
+        return new ArrayList<>(this.tickets.values());
     }
 }

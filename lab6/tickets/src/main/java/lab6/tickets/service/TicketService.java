@@ -17,13 +17,15 @@ public interface TicketService {
      * Can NOT duplicate row and seat same event.
      * @param u
      */
-    void createTicket(Ticket u) throws Exception;
+    Ticket createTicket(Ticket u) throws Exception;
 
     void removeTicket(UUID id);
 
     Ticket findById(UUID id);
 
     void updateTicket(Ticket ticket);
+
+    List<Ticket> getAllTickets();
 
     /**
      * Return all tickets bought by a user
@@ -40,10 +42,12 @@ public interface TicketService {
     List<Ticket> findAllTicketsByEvent(Event event);
 
     /**
-     * Return all available events for between two dates
-     * @param from
-     * @param to
-     * @return
+     * Return all visited events
      */
-    List<Event> findAllEventsBetweenDates(LocalDate from, LocalDate to);
+    List<Event> getAllVisitedEvents();
+
+    /**
+     * Return all visited events for the past month
+     */
+    List<Event> getAllVisitedEventsInPastMonth();
 }

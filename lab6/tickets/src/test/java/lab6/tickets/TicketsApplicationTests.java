@@ -92,13 +92,13 @@ class TicketsApplicationTests {
 		this.ticketService.createTicket(t3);
 		this.ticketService.createTicket(t4);
 
-		assert this.userService.getAllVisitedEvent().size() == 1;
-		assert this.userService.getAllVisitedEventsInPastMonth().size() == 1;
+		assert this.ticketService.getAllVisitedEvents().size() == 1;
+		assert this.ticketService.getAllVisitedEventsInPastMonth().size() == 1;
 	}
 
 	@Test
 	void testEventServiceFindById() {
-		this.eventService.getAllEvents().forEach(e -> this.eventService.removeEvent(e.getEventId()));
+		this.eventService.getAllEvents().forEach(e -> this.eventService.removeEvent(e.getId()));
 
 		Event e1 = new Event("event1", LocalDateTime.now().plusDays(1), "first event");
 		Event e2 = new Event("event2", LocalDateTime.now().plusWeeks(1), "second event");
@@ -108,15 +108,15 @@ class TicketsApplicationTests {
 		this.eventService.createEvent(e2);
 		this.eventService.createEvent(e3);
 
-		assert this.eventService.findById(e1.getEventId()) != null;
-		assert this.eventService.findById(e2.getEventId()) != null;
-		assert this.eventService.findById(e3.getEventId()) != null;
+		assert this.eventService.findById(e1.getId()) != null;
+		assert this.eventService.findById(e2.getId()) != null;
+		assert this.eventService.findById(e3.getId()) != null;
 		assert this.eventService.findById(UUID.randomUUID()) == null;
 	}
 
 	@Test
 	void testEventServiceRemoveEvent() {
-		this.eventService.getAllEvents().forEach(e -> this.eventService.removeEvent(e.getEventId()));
+		this.eventService.getAllEvents().forEach(e -> this.eventService.removeEvent(e.getId()));
 
 		Event e1 = new Event("event1", LocalDateTime.now().plusDays(1), "first event");
 		Event e2 = new Event("event2", LocalDateTime.now().plusWeeks(1), "second event");
@@ -126,11 +126,11 @@ class TicketsApplicationTests {
 		this.eventService.createEvent(e2);
 		this.eventService.createEvent(e3);
 
-		assert this.eventService.findById(e1.getEventId()) != null;
+		assert this.eventService.findById(e1.getId()) != null;
 
-		this.eventService.removeEvent(e1.getEventId());
+		this.eventService.removeEvent(e1.getId());
 
-		assert this.eventService.findById(e1.getEventId()) == null;
+		assert this.eventService.findById(e1.getId()) == null;
 	}
 
 	@Test
@@ -143,12 +143,12 @@ class TicketsApplicationTests {
 		this.eventService.createEvent(e2);
 		this.eventService.createEvent(e3);
 
-		assert this.eventService.findById(e1.getEventId()).getName().equals("event1");
+		assert this.eventService.findById(e1.getId()).getName().equals("event1");
 
 		e1.setName("newevent1");
 		this.eventService.updateEvent(e1);
 
-		assert this.eventService.findById(e1.getEventId()).getName().equals("newevent1");
+		assert this.eventService.findById(e1.getId()).getName().equals("newevent1");
 	}
 
 	@Test
@@ -159,7 +159,7 @@ class TicketsApplicationTests {
 
 		this.ticketService.createTicket(t);
 
-		assert this.ticketService.findById(t.getTicketId()) != null;
+		assert this.ticketService.findById(t.getId()) != null;
 		assert this.ticketService.findById(UUID.randomUUID()) == null;
 	}
 
@@ -171,11 +171,11 @@ class TicketsApplicationTests {
 
 		this.ticketService.createTicket(t);
 
-		assert this.ticketService.findById(t.getTicketId()) != null;
+		assert this.ticketService.findById(t.getId()) != null;
 
-		this.ticketService.removeTicket(t.getTicketId());
+		this.ticketService.removeTicket(t.getId());
 
-		assert this.ticketService.findById(t.getTicketId()) == null;
+		assert this.ticketService.findById(t.getId()) == null;
 	}
 
 	@Test
@@ -186,12 +186,12 @@ class TicketsApplicationTests {
 
 		this.ticketService.createTicket(t);
 
-		assert this.ticketService.findById(t.getTicketId()).getPrice().equals(new BigDecimal(2.50));
+		assert this.ticketService.findById(t.getId()).getPrice().equals(new BigDecimal(2.50));
 
 		t.setPrice(new BigDecimal(3.00));
 		this.ticketService.updateTicket(t);
 
-		assert this.ticketService.findById(t.getTicketId()).getPrice().equals(new BigDecimal(3.00));
+		assert this.ticketService.findById(t.getId()).getPrice().equals(new BigDecimal(3.00));
 	}
 
 	@Test
@@ -242,6 +242,6 @@ class TicketsApplicationTests {
 		this.ticketService.createTicket(t2);
 		this.ticketService.createTicket(t3);
 
-		assert this.ticketService.findAllEventsBetweenDates(LocalDate.now(), LocalDate.now().plusDays(17)).size() == 2;
+		assert this.eventService.findAllEventsBetweenDates(LocalDate.now(), LocalDate.now().plusDays(17)).size() == 2;
 	}
 }

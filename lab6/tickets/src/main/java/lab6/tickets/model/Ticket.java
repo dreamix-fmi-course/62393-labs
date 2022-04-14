@@ -8,7 +8,7 @@ import java.util.UUID;
 
 @Getter
 public class Ticket {
-    private UUID ticketId;
+    private UUID id;
     private BigDecimal price;
     private int row;
     private int seat;
@@ -16,7 +16,11 @@ public class Ticket {
     private Event event;
 
     public Ticket(BigDecimal price, int row, int seat, User user, Event event) {
-        this.ticketId = UUID.randomUUID();
+        this(UUID.randomUUID(), price, row, seat, user, event);
+    }
+
+    public Ticket(UUID id, BigDecimal price, int row, int seat, User user, Event event) {
+        this.id = id;
         this.price = price;
         this.row = row;
         this.seat = seat;
@@ -33,13 +37,13 @@ public class Ticket {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Ticket ticket = (Ticket) o;
-        return Objects.equals(ticketId, ticket.ticketId);
+        return Objects.equals(id, ticket.id);
     }
 
     @Override
     public String toString() {
         return "Ticket{" +
-                "ticketId=" + ticketId +
+                "id=" + id +
                 ", price=" + price +
                 ", row=" + row +
                 ", seat=" + seat +
@@ -50,6 +54,6 @@ public class Ticket {
 
     @Override
     public int hashCode() {
-        return Objects.hash(ticketId, price, row, seat, user, event);
+        return Objects.hash(id, price, row, seat, user, event);
     }
 }

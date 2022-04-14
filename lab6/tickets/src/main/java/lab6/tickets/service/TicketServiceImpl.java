@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -30,7 +31,7 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
-    public void createTicket(Ticket u) throws Exception {
+    public Ticket createTicket(Ticket u) throws Exception {
         int maxRow = appConfig.getEvent().getMaximumRow();
         int maxSeat = appConfig.getEvent().getMaximumSeat();
 
@@ -40,10 +41,11 @@ public class TicketServiceImpl implements TicketService {
                     .filter(t -> t.getEvent().equals(u.getEvent()) && t.getRow() == u.getRow() && t.getSeat() == u.getSeat())
                     .filter(t -> t.getEvent().equals(u.getEvent()) && (t.getRow() > maxRow || t.getSeat() > maxSeat))
                     .count() > 0) {
-            throw new Exception("Невалидни данни");
+            throw new Exception("Invalid data");
         }
 
         this.ticketRepository.createTicket(u);
+        return u;
     }
 
     @Override
@@ -62,6 +64,9 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
+    public List<Ticket> getAllTickets() { return this.ticketRepository.getAllTickets(); }
+
+    @Override
     public List<Ticket> findAllTicketsByUser(User user) {
         return this.ticketRepository.getAllTickets().stream()
                 .filter(t -> t.getUser().getId().equals(user.getId()))
@@ -71,14 +76,26 @@ public class TicketServiceImpl implements TicketService {
     @Override
     public List<Ticket> findAllTicketsByEvent(Event event) {
         return this.ticketRepository.getAllTickets().stream()
-                .filter(t -> t.getEvent().getEventId().equals(event.getEventId()))
+                .filter(t -> t.getEvent().getId().equals(event.getId()))
                 .collect(Collectors.toList());
     }
 
     @Override
-    public List<Event> findAllEventsBetweenDates(LocalDate from, LocalDate to) {
-        return this.eventRepository.getAllEvents().stream()
-                .filter(t -> t.getDate().toLocalDate().compareTo(from) > 0 && t.getDate().toLocalDate().compareTo(to) < 0)
+    public List<Event> getAllVisitedEvents() {
+        return this.ticketRepository.getAllTickets().stream()
+                .map(t -> t.getEvent())
+                .distinct()
+                .filter(e -> e.getDate().compareTo(LocalDateTime.now()) < 0)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Event> getAllVisitedEventsInPastMonth() {
+        LocalDateTime now = LocalDateTime.now();
+        return this.ticketRepository.getAllTickets().stream()
+                .map(t -> t.getEvent())
+                .distinct()
+                .filter(e -> e.getDate().compareTo(now.minusMonths(1)) >= 0 && e.getDate().compareTo(now) < 0)
                 .collect(Collectors.toList());
     }
 }

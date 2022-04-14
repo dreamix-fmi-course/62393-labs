@@ -2,6 +2,7 @@ package lab6.tickets.repository;
 
 import lab6.tickets.model.User;
 
+import java.util.List;
 import java.util.UUID;
 
 public interface UserRepository {
@@ -26,4 +27,5 @@ public interface UserRepository {
      */
     void updateUser(User user);
 
+    List<User> getAll();
 }

@@ -2,11 +2,12 @@ package lab6.tickets.service;
 
 import lab6.tickets.model.Event;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
 public interface EventService {
-    void createEvent(Event u);
+    Event createEvent(Event u);
 
     void removeEvent(UUID id);
 
@@ -15,4 +16,12 @@ public interface EventService {
     void updateEvent(Event event);
 
     List<Event> getAllEvents();
+
+    /**
+     * Return all available events for between two dates
+     * @param from
+     * @param to
+     * @return
+     */
+    List<Event> findAllEventsBetweenDates(LocalDate from, LocalDate to);
 }

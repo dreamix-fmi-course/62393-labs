@@ -7,13 +7,16 @@ import java.util.UUID;
 
 @Getter
 public class User {
-
     private UUID id;
     private String userName;
     private String email;
 
     public User(String userName, String email) {
-        this.id = UUID.randomUUID();
+        this(UUID.randomUUID(), userName, email);
+    }
+
+    public User(UUID id, String userName, String email) {
+        this.id = id;
         this.userName = userName;
         this.email = email;
     }

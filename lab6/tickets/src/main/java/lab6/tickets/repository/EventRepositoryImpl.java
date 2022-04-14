@@ -3,11 +3,11 @@ package lab6.tickets.repository;
 import lab6.tickets.model.Event;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
 
 @Repository
 public class EventRepositoryImpl implements EventRepository {
@@ -15,7 +15,7 @@ public class EventRepositoryImpl implements EventRepository {
 
     @Override
     public void createEvent(Event event) {
-        this.events.put(event.getEventId(), event);
+        this.events.put(event.getId(), event);
     }
 
     @Override
@@ -30,14 +30,14 @@ public class EventRepositoryImpl implements EventRepository {
 
     @Override
     public void updateEvent(Event event) {
-        if (!this.events.containsKey(event.getEventId())) {
-            throw new RuntimeException("Event with such id doesn't exist");
+        if (!this.events.containsKey(event.getId())) {
+            throw new RuntimeException("Event with id " + event.getId() + " doesn't exist");
         }
-        this.events.put(event.getEventId(), event);
+        this.events.put(event.getId(), event);
     }
 
     @Override
     public List<Event> getAllEvents() {
-        return this.events.values().stream().collect(Collectors.toList());
+        return new ArrayList<>(this.events.values());
     }
 }

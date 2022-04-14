@@ -8,13 +8,17 @@ import java.util.UUID;
 
 @Getter
 public class Event {
-    private UUID eventId;
+    private UUID id;
     private String name;
     private LocalDateTime date;
     private String description;
 
     public Event(String name, LocalDateTime date, String description) {
-        this.eventId = UUID.randomUUID();
+        this(UUID.randomUUID(), name, date, description);
+    }
+
+    public Event(UUID id, String name, LocalDateTime date, String description) {
+        this.id = id;
         this.name = name;
         this.date = date;
         this.description = description;
@@ -29,13 +33,13 @@ public class Event {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Event event = (Event) o;
-        return Objects.equals(eventId, event.eventId);
+        return Objects.equals(id, event.id);
     }
 
     @Override
     public String toString() {
         return "Event{" +
-                "eventId=" + eventId +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", date=" + date +
                 ", description='" + description + '\'' +
@@ -44,6 +48,6 @@ public class Event {
 
     @Override
     public int hashCode() {
-        return Objects.hash(eventId, name, date, description);
+        return Objects.hash(id, name, date, description);
     }
 }

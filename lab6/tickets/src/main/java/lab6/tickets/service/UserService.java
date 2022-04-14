@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public interface UserService {
 
-    void createUser(User u);
+    User createUser(User u);
 
     void deleteUser(UUID id);
 
@@ -16,14 +16,6 @@ public interface UserService {
 
     void updateUserInformation(User user);
 
-    /**
-     * Return all visited events
-     */
-    List<Event> getAllVisitedEvent();
-
-    /**
-     * Return all visited events for the past month
-     */
-    List<Event> getAllVisitedEventsInPastMonth();
+    List<User> getAllUsers();
 
 }

@@ -6,21 +6,23 @@ import lab6.tickets.repository.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class EventServiceImpl implements EventService {
+
     @Autowired
     private EventRepository eventRepository;
     @Autowired
     private Logger logger;
 
     @Override
-    public void createEvent(Event u) {
+    public Event createEvent(Event u) {
         this.eventRepository.createEvent(u);
-        this.logger.info("Created event " + u.getName());
-        this.logger.debug("Created event " + u.getName());
+        return u;
     }
 
     @Override
@@ -41,5 +43,12 @@ public class EventServiceImpl implements EventService {
     @Override
     public List<Event> getAllEvents() {
         return this.eventRepository.getAllEvents();
+    }
+
+    @Override
+    public List<Event> findAllEventsBetweenDates(LocalDate from, LocalDate to) {
+        return this.eventRepository.getAllEvents().stream()
+                .filter(t -> t.getDate().toLocalDate().compareTo(from) > 0 && t.getDate().toLocalDate().compareTo(to) < 0)
+                .collect(Collectors.toList());
     }
 }
