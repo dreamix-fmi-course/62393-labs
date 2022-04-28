@@ -2,11 +2,10 @@ package com.tickets.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import org.hibernate.annotations.CascadeType;
 import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.UUID;
@@ -22,22 +21,21 @@ public class Ticket {
     @Column(name="id")
     private UUID id;
 
-    @Column(name = "price", columnDefinition = "DECIMAL(19, 2)")
+    @Column(name = "price", columnDefinition = "DECIMAL(19, 2)", nullable = false)
     private BigDecimal price;
 
-    @Column(name = "row")
+    @Column(name = "row", nullable = false)
     private int row;
 
-    @Column(name = "seat")
+    @Column(name = "seat", nullable = false)
     private int seat;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "event_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "event_id", nullable = false)
     private Event event;
 
     public Ticket() {}

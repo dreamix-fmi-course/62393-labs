@@ -1,1 +1,87 @@
-2022-04-28T18:08:57.264630600 [INFO] Retrieving all users
+2022-04-28T20:31:29.750 [INFO] Ticket to create: TicketDto{id=null, price=0.99, row=0, seat=0, userDto=UserDto{id=9bc80d8c-29f6-4e89-8c5b-94631495c500, username='retarded', email='retard@dumb.com'}, eventDto=EventDto{id=83a87171-3c6a-445a-a27e-87d9d5b93e53, name='Event', date=2021-04-14T19:32:11.827479600, description='Some event'}}
+2022-04-28T20:31:29.754 [ERROR] java.lang.IllegalArgumentException: Invalid data.
+2022-04-28T20:32:59.517 [INFO] Ticket to create: TicketDto{id=null, price=0.99, row=0, seat=0, userDto=UserDto{id=9bc80d8c-29f6-4e89-8c5b-94631495c500, username='retarded', email='retard@dumb.com'}, eventDto=EventDto{id=83a87171-3c6a-445a-a27e-87d9d5b93e53, name='Event', date=2023-04-14T19:32:11.827479600, description='Some event'}}
+2022-04-28T20:32:59.714 [ERROR] org.springframework.orm.jpa.JpaObjectRetrievalFailureException: Unable to find com.tickets.model.Event with id 83a87171-3c6a-445a-a27e-87d9d5b93e53; nested exception is javax.persistence.EntityNotFoundException: Unable to find com.tickets.model.Event with id 83a87171-3c6a-445a-a27e-87d9d5b93e53
+2022-04-28T20:37:00.518 [INFO] Ticket to create: TicketDto{id=null, price=0.99, row=0, seat=0, userDto=UserDto{id=9bc80d8c-29f6-4e89-8c5b-94631495c500, username='retarded', email='retard@dumb.com'}, eventDto=EventDto{id=83a87171-3c6a-445a-a27e-87d9d5b93e53, name='Event', date=2023-04-14T19:32:11.827479600, description='Some event'}}
+2022-04-28T20:37:00.741 [ERROR] org.springframework.orm.jpa.JpaObjectRetrievalFailureException: Unable to find com.tickets.model.Event with id 83a87171-3c6a-445a-a27e-87d9d5b93e53; nested exception is javax.persistence.EntityNotFoundException: Unable to find com.tickets.model.Event with id 83a87171-3c6a-445a-a27e-87d9d5b93e53
+2022-04-28T20:38:22.374 [INFO] Ticket to create: TicketDto{id=null, price=0.99, row=0, seat=0, userDto=UserDto{id=9bc80d8c-29f6-4e89-8c5b-94631495c500, username='retarded', email='retard@dumb.com'}, eventDto=EventDto{id=83a87171-3c6a-445a-a27e-87d9d5b93e53, name='Event', date=2023-04-14T19:32:11.827479600, description='Some event'}}
+2022-04-28T20:38:22.590 [ERROR] org.springframework.orm.jpa.JpaObjectRetrievalFailureException: Unable to find com.tickets.model.Event with id 83a87171-3c6a-445a-a27e-87d9d5b93e53; nested exception is javax.persistence.EntityNotFoundException: Unable to find com.tickets.model.Event with id 83a87171-3c6a-445a-a27e-87d9d5b93e53
+2022-04-28T20:39:13.463 [INFO] Ticket to create: TicketDto{id=null, price=0.99, row=0, seat=0, userDto=UserDto{id=9bc80d8c-29f6-4e89-8c5b-94631495c500, username='retarded', email='retard@dumb.com'}, eventDto=EventDto{id=83a87171-3c6a-445a-a27e-87d9d5b93e53, name='Event', date=2023-04-14T19:32:11.827479600, description='Some event'}}
+2022-04-28T20:39:13.642 [ERROR] org.springframework.orm.jpa.JpaObjectRetrievalFailureException: Unable to find com.tickets.model.Event with id 83a87171-3c6a-445a-a27e-87d9d5b93e53; nested exception is javax.persistence.EntityNotFoundException: Unable to find com.tickets.model.Event with id 83a87171-3c6a-445a-a27e-87d9d5b93e53
+2022-04-28T20:39:39.466 [INFO] Ticket to create: TicketDto{id=null, price=0.99, row=0, seat=0, userDto=UserDto{id=9bc80d8c-29f6-4e89-8c5b-94631495c500, username='retarded', email='retard@dumb.com'}, eventDto=EventDto{id=83a87171-3c6a-445a-a27e-87d9d5b93e53, name='Event', date=2023-04-14T19:32:11.827479600, description='Some event'}}
+2022-04-28T20:39:39.686 [ERROR] org.springframework.orm.jpa.JpaObjectRetrievalFailureException: Unable to find com.tickets.model.Event with id 83a87171-3c6a-445a-a27e-87d9d5b93e53; nested exception is javax.persistence.EntityNotFoundException: Unable to find com.tickets.model.Event with id 83a87171-3c6a-445a-a27e-87d9d5b93e53
+2022-04-28T20:46:59.667 [INFO] Ticket to create: TicketDto{id=null, price=0.99, row=0, seat=0, userDto=UserDto{id=9bc80d8c-29f6-4e89-8c5b-94631495c500, username='retarded', email='retard@dumb.com'}, eventDto=EventDto{id=83a87171-3c6a-445a-a27e-87d9d5b93e53, name='Event', date=2023-04-14T19:32:11.827479600, description='Some event'}}
+2022-04-28T20:46:59.838 [ERROR] org.springframework.orm.jpa.JpaObjectRetrievalFailureException: Unable to find com.tickets.model.Event with id 83a87171-3c6a-445a-a27e-87d9d5b93e53; nested exception is javax.persistence.EntityNotFoundException: Unable to find com.tickets.model.Event with id 83a87171-3c6a-445a-a27e-87d9d5b93e53
+2022-04-28T20:47:04.322 [INFO] User to create: UserDto{id=null, username='retarded', email='retard@dumb.com'}
+2022-04-28T20:47:04.356 [INFO] Created user: User{id=29686d87-a5eb-42cb-a2a2-9fc5e8dbe732, username='retarded', email='retard@dumb.com'}
+2022-04-28T20:47:22.678 [INFO] Event to create: EventDto{id=null, name='Event', date=2021-04-14T19:32:11.827479600, description='Some event'}
+2022-04-28T20:47:22.693 [INFO] Created event: Event{id=c980eaf6-9803-4a73-bb7d-814b629f7fdf, name='Event', date=2021-04-14T19:32:11.827479600, description='Some event'}
+2022-04-28T20:47:46.832 [INFO] Ticket to create: TicketDto{id=null, price=0.99, row=0, seat=0, userDto=UserDto{id=29686d87-a5eb-42cb-a2a2-9fc5e8dbe732, username='retarded', email='retard@dumb.com'}, eventDto=EventDto{id=c980eaf6-9803-4a73-bb7d-814b629f7fdf, name='Event', date=2023-04-14T19:32:11.827479600, description='Some event'}}
+2022-04-28T20:47:46.839 [ERROR] org.springframework.orm.jpa.JpaObjectRetrievalFailureException: Unable to find com.tickets.model.Event with id c980eaf6-9803-4a73-bb7d-814b629f7fdf; nested exception is javax.persistence.EntityNotFoundException: Unable to find com.tickets.model.Event with id c980eaf6-9803-4a73-bb7d-814b629f7fdf
+2022-04-28T20:47:52.638 [INFO] Retrieving all events
+2022-04-28T20:56:19.641 [INFO] Ticket to create: TicketDto{id=null, price=0.99, row=0, seat=0, userDto=UserDto{id=29686d87-a5eb-42cb-a2a2-9fc5e8dbe732, username='retarded', email='retard@dumb.com'}, eventDto=EventDto{id=c980eaf6-9803-4a73-bb7d-814b629f7fdf, name='Event', date=2023-04-14T19:32:11.827479600, description='Some event'}}
+2022-04-28T20:56:19.866 [ERROR] org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [fk3utafe14rupaypjocldjaj4ol]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+2022-04-28T20:56:33.278 [INFO] User to create: UserDto{id=null, username='retarded', email='retard@dumb.com'}
+2022-04-28T20:56:33.298 [INFO] Created user: User{id=d802ebeb-f3f6-4740-88ae-5ee56803f15b, username='retarded', email='retard@dumb.com'}
+2022-04-28T20:56:43.509 [INFO] Event to create: EventDto{id=null, name='Event', date=2021-04-14T19:32:11.827479600, description='Some event'}
+2022-04-28T20:56:43.537 [INFO] Created event: Event{id=a1f127db-0b8c-4341-8d8e-d4934c72f26d, name='Event', date=2021-04-14T19:32:11.827479600, description='Some event'}
+2022-04-28T20:56:56.638 [INFO] Ticket to create: TicketDto{id=null, price=0.99, row=0, seat=0, userDto=UserDto{id=d802ebeb-f3f6-4740-88ae-5ee56803f15b, username='retarded', email='retard@dumb.com'}, eventDto=EventDto{id=a1f127db-0b8c-4341-8d8e-d4934c72f26d, name='Event', date=2023-04-14T19:32:11.827479600, description='Some event'}}
+2022-04-28T20:56:56.644 [ERROR] org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [fk3utafe14rupaypjocldjaj4ol]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+2022-04-28T20:57:09.453 [INFO] Retrieving all events
+2022-04-28T20:57:37.253 [INFO] Ticket to create: TicketDto{id=null, price=0.99, row=0, seat=0, userDto=UserDto{id=d802ebeb-f3f6-4740-88ae-5ee56803f15b, username='retarded', email='retard@dumb.com'}, eventDto=EventDto{id=47817789-6117-44a5-b4af-8d8fd425930e, name='Event', date=2023-04-14T19:32:11.827479600, description='Some event'}}
+2022-04-28T20:57:37.259 [ERROR] org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [fk4eqsebpimnjen0q46ja6fl2hl]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+2022-04-28T20:57:45.834 [INFO] Retrieving all users
+2022-04-28T20:58:15.356 [INFO] Ticket to create: TicketDto{id=null, price=0.99, row=0, seat=0, userDto=UserDto{id=5a220b55-382c-497f-b6b3-84b5af33c189, username='retarded', email='retard@dumb.com'}, eventDto=EventDto{id=47817789-6117-44a5-b4af-8d8fd425930e, name='Event', date=2023-04-14T19:32:11.827479600, description='Some event'}}
+2022-04-28T20:58:15.365 [INFO] Created ticket: Ticket{id=7388f1f9-6138-4ef9-8b3d-db423cd6d25b, price=0.99, row=0, seat=0, user=User{id=5a220b55-382c-497f-b6b3-84b5af33c189, username='retarded', email='retard@dumb.com'}, event=Event{id=47817789-6117-44a5-b4af-8d8fd425930e, name='Event', date=2023-04-14T19:32:11.827479600, description='Some event'}}
+2022-04-28T20:58:22.735 [INFO] Retrieving all users
+2022-04-28T21:03:52.607 [INFO] User to create: UserDto{id=null, username='retarded', email='retard@dumb.com'}
+2022-04-28T21:03:52.788 [INFO] Created user: User{id=c2c1abc8-dd22-46f0-aee8-17dd3eac6f06, username='retarded', email='retard@dumb.com'}
+2022-04-28T21:03:57.046 [INFO] Retrieving all users
+2022-04-28T21:06:54.037 [INFO] User to create: UserDto{id=null, username='retarded', email='retard@dumb.com'}
+2022-04-28T21:06:54.251 [INFO] Created user: User{id=e491d3ac-12a5-4ad1-8a1c-b0c981abc1f8, username='retarded', email='retard@dumb.com'}
+2022-04-28T21:06:56.699 [INFO] Retrieving all users
+2022-04-28T21:07:07.568 [INFO] Event to create: EventDto{id=null, name='Event', date=2021-04-14T19:32:11.827479600, description='Some event'}
+2022-04-28T21:07:07.581 [INFO] Created event: Event{id=dffd7a60-b6e8-45e6-bc73-0c1ad52f72d4, name='Event', date=2021-04-14T19:32:11.827479600, description='Some event'}
+2022-04-28T21:07:18.576 [INFO] Ticket to create: TicketDto{id=null, price=0.99, row=0, seat=0, userDto=UserDto{id=e491d3ac-12a5-4ad1-8a1c-b0c981abc1f8, username='retarded', email='retard@dumb.com'}, eventDto=EventDto{id=dffd7a60-b6e8-45e6-bc73-0c1ad52f72d4, name='Event', date=2023-04-14T19:32:11.827479600, description='Some event'}}
+2022-04-28T21:07:18.610 [INFO] Created ticket: Ticket{id=d5439390-9399-49bc-ac6c-ef44a3346ad9, price=0.99, row=0, seat=0, user=User{id=e491d3ac-12a5-4ad1-8a1c-b0c981abc1f8, username='retarded', email='retard@dumb.com'}, event=Event{id=dffd7a60-b6e8-45e6-bc73-0c1ad52f72d4, name='Event', date=2021-04-14T19:32:11.827480, description='Some event'}}
+2022-04-28T21:07:30.555 [INFO] Retrieving all tickets
+2022-04-28T21:08:29.881 [INFO] Retrieving all tickets for user: User{id=e491d3ac-12a5-4ad1-8a1c-b0c981abc1f8, username='retarded', email='retard@dumb.com'}
+2022-04-28T21:08:29.919 [ERROR] org.springframework.dao.InvalidDataAccessResourceUsageException: could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2022-04-28T21:12:32.602 [INFO] Retrieving all tickets
+2022-04-28T21:12:44.739 [INFO] Retrieving all tickets for user: User{id=e491d3ac-12a5-4ad1-8a1c-b0c981abc1f8, username='retarded', email='retard@dumb.com'}
+2022-04-28T21:12:44.741 [ERROR] org.springframework.dao.InvalidDataAccessResourceUsageException: could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2022-04-28T21:14:40.563 [ERROR] java.util.NoSuchElementException: User not found.
+2022-04-28T21:14:55.319 [INFO] Ticket to create: TicketDto{id=null, price=0.99, row=0, seat=0, userDto=UserDto{id=e491d3ac-12a5-4ad1-8a1c-b0c981abc1f8, username='retarded', email='retard@dumb.com'}, eventDto=EventDto{id=dffd7a60-b6e8-45e6-bc73-0c1ad52f72d4, name='Event', date=2023-04-14T19:32:11.827479600, description='Some event'}}
+2022-04-28T21:14:55.561 [ERROR] org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [fk3utafe14rupaypjocldjaj4ol]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+2022-04-28T21:14:59.454 [INFO] User to create: UserDto{id=null, username='retarded', email='retard@dumb.com'}
+2022-04-28T21:14:59.484 [INFO] Created user: User{id=439eba15-3700-458c-b63c-111d2e785a06, username='retarded', email='retard@dumb.com'}
+2022-04-28T21:15:10.690 [INFO] Event to create: EventDto{id=null, name='Event', date=2021-04-14T19:32:11.827479600, description='Some event'}
+2022-04-28T21:15:10.706 [INFO] Created event: Event{id=9f6bda86-3164-4c3e-955a-19158da5247c, name='Event', date=2021-04-14T19:32:11.827479600, description='Some event'}
+2022-04-28T21:15:40.414 [INFO] Ticket to create: TicketDto{id=null, price=0.99, row=0, seat=0, userDto=UserDto{id=439eba15-3700-458c-b63c-111d2e785a06, username='retarded', email='retard@dumb.com'}, eventDto=EventDto{id=9f6bda86-3164-4c3e-955a-19158da5247c, name='Event', date=2023-04-14T19:32:11.827479600, description='Some event'}}
+2022-04-28T21:15:40.433 [INFO] Created ticket: Ticket{id=c387c3d4-eef2-48c4-a51c-66c61863b85c, price=0.99, row=0, seat=0, user=User{id=439eba15-3700-458c-b63c-111d2e785a06, username='retarded', email='retard@dumb.com'}, event=Event{id=9f6bda86-3164-4c3e-955a-19158da5247c, name='Event', date=2021-04-14T19:32:11.827480, description='Some event'}}
+2022-04-28T21:15:46.523 [INFO] Retrieving all tickets for user: User{id=439eba15-3700-458c-b63c-111d2e785a06, username='retarded', email='retard@dumb.com'}
+2022-04-28T21:15:59.691 [INFO] Retrieving all tickets for event: Event{id=9f6bda86-3164-4c3e-955a-19158da5247c, name='Event', date=2021-04-14T19:32:11.827480, description='Some event'}
+2022-04-28T21:16:04.282 [INFO] Retrieving all visited events
+2022-04-28T21:18:47.571 [INFO] Retrieving all visited events
+2022-04-28T21:24:34.942 [INFO] Retrieving all tickets
+2022-04-28T21:24:38.806 [INFO] User to create: UserDto{id=null, username='retarded', email='retard@dumb.com'}
+2022-04-28T21:24:38.889 [INFO] Created user: User{id=6564dd0d-5384-4efc-8cd4-cc44bd2e6641, username='retarded', email='retard@dumb.com'}
+2022-04-28T21:24:48.975 [INFO] Event to create: EventDto{id=null, name='Event', date=2021-04-14T19:32:11.827479600, description='Some event'}
+2022-04-28T21:24:48.994 [INFO] Created event: Event{id=26acebf7-a3cd-4552-a141-2b4fc42f9c2f, name='Event', date=2021-04-14T19:32:11.827479600, description='Some event'}
+2022-04-28T21:24:55.288 [INFO] Ticket to create: TicketDto{id=null, price=0.99, row=0, seat=0, userDto=UserDto{id=6564dd0d-5384-4efc-8cd4-cc44bd2e6641, username='retarded', email='retard@dumb.com'}, eventDto=EventDto{id=26acebf7-a3cd-4552-a141-2b4fc42f9c2f, name='Event', date=2023-04-14T19:32:11.827479600, description='Some event'}}
+2022-04-28T21:24:55.321 [INFO] Created ticket: Ticket{id=bcd8e352-bf6a-4db7-96e4-4c53043d19f2, price=0.99, row=0, seat=0, user=User{id=6564dd0d-5384-4efc-8cd4-cc44bd2e6641, username='retarded', email='retard@dumb.com'}, event=Event{id=26acebf7-a3cd-4552-a141-2b4fc42f9c2f, name='Event', date=2021-04-14T19:32:11.827480, description='Some event'}}
+2022-04-28T21:29:38.143 [INFO] Retrieving all visited events
+2022-04-28T21:30:18.942 [INFO] Retrieving all visited events
+2022-04-28T21:35:18.531 [INFO] User to create: UserDto{id=null, username='retarded', email='retard@dumb.com'}
+2022-04-28T21:35:18.625 [INFO] Created user: User{id=d0a47402-6d29-4313-8c02-5182d6c11a48, username='retarded', email='retard@dumb.com'}
+2022-04-28T21:35:40.812 [INFO] Event to create: EventDto{id=null, name='Event', date=2021-04-14T19:32:11.827479600, description='Some event'}
+2022-04-28T21:35:40.826 [INFO] Created event: Event{id=9efaba61-7f7a-43cc-b4f7-62a5aa28bb09, name='Event', date=2021-04-14T19:32:11.827479600, description='Some event'}
+2022-04-28T21:35:51.900 [INFO] Ticket to create: TicketDto{id=null, price=0.99, row=0, seat=0, userDto=UserDto{id=d0a47402-6d29-4313-8c02-5182d6c11a48, username='retarded', email='retard@dumb.com'}, eventDto=EventDto{id=9efaba61-7f7a-43cc-b4f7-62a5aa28bb09, name='Event', date=2023-04-14T19:32:11.827479600, description='Some event'}}
+2022-04-28T21:35:51.969 [INFO] Created ticket: Ticket{id=f6b35801-d010-496d-b915-be0fdd78cd4a, price=0.99, row=0, seat=0, user=User{id=d0a47402-6d29-4313-8c02-5182d6c11a48, username='retarded', email='retard@dumb.com'}, event=Event{id=9efaba61-7f7a-43cc-b4f7-62a5aa28bb09, name='Event', date=2021-04-14T19:32:11.827480, description='Some event'}}
+2022-04-28T21:35:55.759 [INFO] Retrieving all visited events
+2022-04-28T21:47:47.942 [INFO] Event to create: EventDto{id=null, name='Event', date=2022-04-14T19:32:11.827479600, description='Some event'}
+2022-04-28T21:47:47.949 [INFO] Created event: Event{id=a0827b9c-0ada-4432-b447-e618a7994596, name='Event', date=2022-04-14T19:32:11.827479600, description='Some event'}
+2022-04-28T21:47:59.230 [INFO] Ticket to create: TicketDto{id=null, price=0.99, row=0, seat=0, userDto=UserDto{id=d0a47402-6d29-4313-8c02-5182d6c11a48, username='retarded', email='retard@dumb.com'}, eventDto=EventDto{id=a0827b9c-0ada-4432-b447-e618a7994596, name='Event', date=2023-04-14T19:32:11.827479600, description='Some event'}}
+2022-04-28T21:47:59.242 [INFO] Created ticket: Ticket{id=1f9a9eb1-7f1e-4903-9fe3-ed3f0388d6c7, price=0.99, row=0, seat=0, user=User{id=d0a47402-6d29-4313-8c02-5182d6c11a48, username='retarded', email='retard@dumb.com'}, event=Event{id=a0827b9c-0ada-4432-b447-e618a7994596, name='Event', date=2022-04-14T19:32:11.827480, description='Some event'}}
+2022-04-28T21:48:05.886 [INFO] Retrieving all visited events
+2022-04-28T21:48:15.291 [INFO] Retrieving all visited events

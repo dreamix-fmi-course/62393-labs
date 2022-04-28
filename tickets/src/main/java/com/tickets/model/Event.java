@@ -6,6 +6,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -20,14 +21,17 @@ public class Event {
     @Column(name="id")
     private UUID id;
 
-    @Column(name = "name", columnDefinition = "VARCHAR(50)")
+    @Column(name = "name", columnDefinition = "VARCHAR(50)", nullable = false)
     private String name;
 
-    @Column(name = "date", columnDefinition = "TIMESTAMP")
+    @Column(name = "date", columnDefinition = "TIMESTAMP", nullable = false)
     private LocalDateTime date;
 
     @Column(name = "description", columnDefinition = "VARCHAR(255)")
     private String description;
+
+    @OneToMany(mappedBy = "event")
+    private List<Ticket> tickets;
 
     public Event() {}
 

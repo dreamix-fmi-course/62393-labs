@@ -31,7 +31,7 @@ public class EventController {
     public ResponseEntity<EventDto> createEvent(@RequestBody EventDto eventDto) {
         logger.info("Event to create: " + eventDto);
         Event event = this.mapper.convertToEntity(eventDto);
-        this.eventService.createEvent(event);
+        event = this.eventService.createEvent(event);
         logger.info("Created event: " + event);
 
         return new ResponseEntity(
@@ -59,7 +59,7 @@ public class EventController {
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Event> deleteEvent(@PathVariable UUID id) {
+    public ResponseEntity deleteEvent(@PathVariable UUID id) {
         try {
             logger.info("Event to delete with ID: " + id);
             this.eventService.removeEvent(id);
@@ -78,7 +78,9 @@ public class EventController {
     @GetMapping
     public ResponseEntity<List<EventDto>> getAllEvents() {
         logger.info("Retrieving all events");
-        List<Event> events = this.eventService.getAllEvents();
+        List<EventDto> events = this.eventService.getAllEvents().stream()
+                .map(mapper::convertToDto)
+                .collect(Collectors.toList());
         return new ResponseEntity(
                 events,
                 HttpStatus.OK
@@ -90,11 +92,11 @@ public class EventController {
         try {
             logger.info("Event to update: " + eventDto);
             Event event = mapper.convertToEntity(eventDto);
-            eventService.updateEvent(event);
+            event = eventService.updateEvent(event);
             logger.info("Updated event: " + event);
 
             return new ResponseEntity(
-                    eventDto,
+                    mapper.convertToDto(event),
                     HttpStatus.OK
             );
         } catch (Exception e) {

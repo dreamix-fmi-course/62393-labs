@@ -13,7 +13,7 @@ public interface EventService {
 
     Event findById(UUID id);
 
-    void updateEvent(Event event);
+    Event updateEvent(Event event);
 
     List<Event> getAllEvents();
 

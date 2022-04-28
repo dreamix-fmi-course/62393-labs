@@ -12,6 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 @Profile("dev")
 @Component("fileLogger")
@@ -26,7 +27,7 @@ public class LoggerFileImpl implements Logger {
         if(LoggerLevel.valueOf(level).getCode() >= logLevel.getCode()) {
             File log = new File("log.txt");
             try (PrintWriter out = new PrintWriter(new FileWriter(log, true))) {
-                out.println(LocalDateTime.now() + " [" + logLevel.name() + "] " + toLog);
+                out.println(LocalDateTime.now().truncatedTo(ChronoUnit.MILLIS) + " [" + logLevel.name() + "] " + toLog);
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -1,9 +1,7 @@
 package com.tickets.controller;
 
-import com.tickets.dto.EventDto;
 import com.tickets.dto.UserDto;
 import com.tickets.logger.Logger;
-import com.tickets.mapper.EventDtoMapper;
 import com.tickets.mapper.UserDtoMapper;
 import com.tickets.model.User;
 import com.tickets.service.UserService;
@@ -21,9 +19,7 @@ import java.util.stream.Collectors;
 public class UserController {
 
     @Autowired
-    private UserDtoMapper userMapper;
-    @Autowired
-    private EventDtoMapper eventMapper;
+    private UserDtoMapper mapper;
     @Autowired
     private UserService userService;
     @Autowired
@@ -33,12 +29,12 @@ public class UserController {
     public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
         try {
             logger.info("User to create: " + userDto);
-            User user = this.userMapper.convertToEntity(userDto);
-            this.userService.createUser(user);
+            User user = this.mapper.convertToEntity(userDto);
+            user = this.userService.createUser(user);
             logger.info("Created user: " + user);
 
             return new ResponseEntity(
-                    this.userMapper.convertToDto(user),
+                    this.mapper.convertToDto(user),
                     HttpStatus.CREATED
                     );
         } catch (Exception e) {
@@ -53,7 +49,7 @@ public class UserController {
     public ResponseEntity<UserDto> findById(@PathVariable UUID id) {
         try {
             logger.info("User to retrieve with ID: " + id);
-            UserDto userDto = this.userMapper.convertToDto(this.userService.findById(id));
+            UserDto userDto = this.mapper.convertToDto(this.userService.findById(id));
             logger.info("Retrieved user: " + userDto);
             return new ResponseEntity(
                     userDto,
@@ -88,12 +84,12 @@ public class UserController {
     public ResponseEntity<UserDto> updateUser(@RequestBody UserDto userDto) {
         try {
             logger.info("User to update: " + userDto);
-            User user = userMapper.convertToEntity(userDto);
-            userService.updateUserInformation(user);
+            User user = mapper.convertToEntity(userDto);
+            user = userService.updateUserInformation(user);
             logger.info("Updated user: " + user);
 
             return new ResponseEntity(
-                    userDto,
+                    this.mapper.convertToDto(user),
                     HttpStatus.OK
                     );
         } catch (Exception e) {
@@ -107,7 +103,9 @@ public class UserController {
     @GetMapping
     public ResponseEntity<List<UserDto>> getAllUsers() {
         logger.info("Retrieving all users");
-        List<User> users = this.userService.getAllUsers();
+        List<UserDto> users = this.userService.getAllUsers().stream()
+                .map(mapper::convertToDto)
+                .collect(Collectors.toList());
         return new ResponseEntity(
                 users,
                 HttpStatus.OK

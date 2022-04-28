@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 @Profile({"local", "naroden", "stairichen"})
 @Component("stdLogger")
@@ -20,7 +21,7 @@ public class LoggerStdImpl implements Logger {
         String level = appConfig.getLogger().getLevel();
 
         if(LoggerLevel.valueOf(level).getCode() >= logLevel.getCode()) {
-            System.out.println(LocalDateTime.now() + " [" + logLevel.name() + "] " + toLog);
+            System.out.println(LocalDateTime.now().truncatedTo(ChronoUnit.MILLIS) + " [" + logLevel.name() + "] " + toLog);
         }
     }
 

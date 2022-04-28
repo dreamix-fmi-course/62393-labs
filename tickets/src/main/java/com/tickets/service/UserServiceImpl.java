@@ -25,8 +25,7 @@ public class UserServiceImpl implements UserService {
         if (this.userRepository.existsById(user.getId())) {
             throw new IllegalArgumentException(String.format("%s already exists", user.getUsername()));
         }
-        this.userRepository.save(user);
-        return user;
+        return this.userRepository.save(user);
     }
 
     @Override
@@ -44,11 +43,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateUserInformation(User user) {
+    public User updateUserInformation(User user) {
         if (!this.userRepository.existsById(user.getId())) {
             throw new NoSuchElementException(NOT_FOUND_MESSAGE);
         }
-        this.userRepository.save(user);
+        return this.userRepository.save(user);
     }
 
     @Override

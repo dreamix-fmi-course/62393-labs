@@ -29,8 +29,7 @@ public class EventServiceImpl implements EventService {
         if (this.eventRepository.existsById(event.getId())) {
             throw new IllegalArgumentException(String.format("%s already exists", event.getName()));
         }
-        this.eventRepository.save(event);
-        return event;
+        return this.eventRepository.save(event);
     }
 
     @Override
@@ -48,23 +47,20 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public void updateEvent(Event event) {
+    public Event updateEvent(Event event) {
         if (!this.eventRepository.existsById(event.getId())) {
             throw new NoSuchElementException(NOT_FOUND_MESSAGE);
         }
-        this.eventRepository.save(event);
+        return this.eventRepository.save(event);
     }
 
     @Override
     public List<Event> getAllEvents() {
-        return StreamSupport.stream(this.eventRepository.findAll().spliterator(), false)
-            .collect(Collectors.toList());
+        return this.eventRepository.findAll();
     }
 
     @Override
     public List<Event> findAllEventsBetweenDates(LocalDate from, LocalDate to) {
-        return StreamSupport.stream(this.eventRepository.findAll().spliterator(), false)
-                .filter(t -> t.getDate().toLocalDate().compareTo(from) > 0 && t.getDate().toLocalDate().compareTo(to) < 0)
-                .collect(Collectors.toList());
+        return this.eventRepository.findAllBetween(from, to);
     }
 }

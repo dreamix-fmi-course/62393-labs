@@ -45,11 +45,11 @@ public class TicketController {
         try {
             logger.info("Ticket to create: " + ticketDto);
             Ticket ticket = ticketMapper.convertToEntity(ticketDto);
-            this.ticketService.createTicket(ticket);
+            ticket = this.ticketService.createTicket(ticket);
             logger.info("Created ticket: " + ticket);
 
             return new ResponseEntity(
-                    ticketDto,
+                    this.ticketMapper.convertToDto(ticket),
                     HttpStatus.CREATED
             );
         } catch (Exception e) {
@@ -108,10 +108,10 @@ public class TicketController {
         );
     }
 
-    @GetMapping("by-user")
-    public ResponseEntity<List<TicketDto>> findAllTicketsByUser(@PathVariable UUID id) {
+    @GetMapping("by-user/{userId}")
+    public ResponseEntity<List<TicketDto>> findAllTicketsByUser(@PathVariable UUID userId) {
         try {
-            User user = this.userService.findById(id);
+            User user = this.userService.findById(userId);
             logger.info("Retrieving all tickets for user: " + user);
             List<TicketDto> tickets = this.ticketService.findAllTicketsByUser(user).stream()
                     .map(ticketMapper::convertToDto)
@@ -128,10 +128,10 @@ public class TicketController {
         }
     }
 
-    @GetMapping("by-event")
-    public ResponseEntity<List<TicketDto>> findAllTicketsByEvent(@PathVariable UUID id) {
+    @GetMapping("by-event/{eventId}")
+    public ResponseEntity<List<TicketDto>> findAllTicketsByEvent(@PathVariable UUID eventId) {
         try {
-            Event event = this.eventService.findById(id);
+            Event event = this.eventService.findById(eventId);
             logger.info("Retrieving all tickets for event: " + event);
             List<TicketDto> tickets = this.ticketService.findAllTicketsByEvent(event).stream()
                     .map(ticketMapper::convertToDto)

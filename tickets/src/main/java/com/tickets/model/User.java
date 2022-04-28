@@ -1,5 +1,6 @@
 package com.tickets.model;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -25,6 +26,9 @@ public class User {
 
     @Column(name = "email", nullable=false, length=64, unique=true)
     private String email;
+
+    @OneToMany(mappedBy = "user")
+    private List<Ticket> tickets;
 
     public User() {}
 

@@ -16,7 +16,7 @@ public interface TicketService {
 
     Ticket findById(UUID id);
 
-    void updateTicket(Ticket ticket);
+    Ticket updateTicket(Ticket ticket);
 
     List<Ticket> getAllTickets();
 

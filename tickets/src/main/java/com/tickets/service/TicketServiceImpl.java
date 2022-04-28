@@ -43,7 +43,7 @@ public class TicketServiceImpl implements TicketService {
 
         if (ticket.getEvent().getDate().toLocalDate().compareTo(LocalDate.now()) < 0 ||
             ticket.getPrice().compareTo(BigDecimal.ZERO) < 0 ||
-            StreamSupport.stream(this.ticketRepository.findAll().spliterator(), false)
+            this.ticketRepository.findAll().stream()
                     .filter(t -> t.getEvent().equals(ticket.getEvent()) && t.getRow() == ticket.getRow() && t.getSeat() == ticket.getSeat())
                     .filter(t -> t.getEvent().equals(ticket.getEvent()) && (t.getRow() > maxRow || t.getSeat() > maxSeat))
                     .count() > 0) {
@@ -54,8 +54,7 @@ public class TicketServiceImpl implements TicketService {
             throw new IllegalArgumentException(String.format("%s already exists", ticket.getId()));
         }
 
-        this.ticketRepository.save(ticket);
-        return ticket;
+        return this.ticketRepository.save(ticket);
     }
 
     @Override
@@ -73,46 +72,37 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
-    public void updateTicket(Ticket ticket) {
+    public Ticket updateTicket(Ticket ticket) {
         if (!this.ticketRepository.existsById(ticket.getId())) {
             throw new NoSuchElementException(NOT_FOUND_MESSAGE);
         }
-        this.ticketRepository.save(ticket);
+        return this.ticketRepository.save(ticket);
     }
 
     @Override
     public List<Ticket> getAllTickets() { 
-        return StreamSupport.stream(this.ticketRepository.findAll().spliterator(), false)
-            .collect(Collectors.toList());
+        return this.ticketRepository.findAll();
     }
 
     @Override
     public List<Ticket> findAllTicketsByUser(User user) {
-        return StreamSupport.stream(this.ticketRepository.findAll().spliterator(), false)
-                .filter(t -> t.getUser().getId().equals(user.getId()))
-                .collect(Collectors.toList());
+        return this.ticketRepository.findAllByUser(user.getId());
     }
 
     @Override
     public List<Ticket> findAllTicketsByEvent(Event event) {
-        return StreamSupport.stream(this.ticketRepository.findAll().spliterator(), false)
-                .filter(t -> t.getEvent().getId().equals(event.getId()))
-                .collect(Collectors.toList());
+        return this.ticketRepository.findAllByEvent(event.getId());
     }
 
     @Override
     public List<Event> getAllVisitedEvents() {
-        return StreamSupport.stream(this.ticketRepository.findAll().spliterator(), false)
-                .map(t -> t.getEvent())
-                .distinct()
-                .filter(e -> e.getDate().compareTo(LocalDateTime.now()) < 0)
-                .collect(Collectors.toList());
+        return this.ticketRepository.findAllVisitedEvents();
     }
 
     @Override
     public List<Event> getAllVisitedEventsInPastMonth() {
         LocalDateTime now = LocalDateTime.now();
-        return StreamSupport.stream(this.ticketRepository.findAll().spliterator(), false)
+        return this.ticketRepository.findAll().stream()
                 .map(t -> t.getEvent())
                 .distinct()
                 .filter(e -> e.getDate().compareTo(now.minusMonths(1)) >= 0 && e.getDate().compareTo(now) < 0)
