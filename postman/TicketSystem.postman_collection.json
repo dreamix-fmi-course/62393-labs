@@ -92,7 +92,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"userName\": \"retarded\",\r\n    \"email\": \"retard@dumb.com\"\r\n}",
+							"raw": "{\r\n    \"username\": \"retarded\",\r\n    \"email\": \"retard@dumb.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -201,7 +201,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"{{userId}}\",\r\n    \"userName\": \"not retarded\",\r\n    \"email\": \"not_retard@mail.bg\"\r\n}",
+							"raw": "{\r\n    \"id\": \"{{userId}}\",\r\n    \"username\": \"not retarded\",\r\n    \"email\": \"not_retard@mail.bg\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -235,7 +235,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"userName\": \"retarded\",\r\n    \"email\": \"retard@dumb.com\"\r\n}",
+							"raw": "{\r\n    \"id\": \"a5c8a839-3e26-402b-bd54-066db6036a27\",\r\n    \"price\": 0.9899999999999999911182158029987476766109466552734375,\r\n    \"row\": 0,\r\n    \"seat\": 0,\r\n    \"userDto\": {\r\n        \"id\": \"74c9986c-345b-4cb0-8252-d5eee3309d47\",\r\n        \"username\": \"UserName\",\r\n        \"email\": \"Email@mail.org\"\r\n    },\r\n    \"eventDto\": {\r\n        \"id\": \"78006bac-e74d-4578-8102-0fa28ebab557\",\r\n        \"name\": \"Name\",\r\n        \"date\": \"2022-05-14T21:10:15.7622394\",\r\n        \"description\": \"Description\"\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -243,14 +243,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/users/create",
+							"raw": "{{host}}:{{port}}/api/tickets/",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"users",
-								"create"
+								"api",
+								"tickets",
+								""
 							]
 						}
 					},
@@ -297,6 +298,26 @@
 					"response": []
 				},
 				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:{{port}}/api/users/",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Template",
 					"request": {
 						"method": "GET",
@@ -322,15 +343,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/api/users/{{userId}}",
+							"raw": "{{host}}:{{port}}/api/tickets/visited-events",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}",
 							"path": [
 								"api",
-								"users",
-								"{{userId}}"
+								"tickets",
+								"visited-events"
 							]
 						}
 					},
@@ -426,7 +447,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/api/events/{{ticketId}}",
+							"raw": "{{host}}:{{port}}/api/events/{{eventId}}",
 							"host": [
 								"{{host}}"
 							],
@@ -434,7 +455,7 @@
 							"path": [
 								"api",
 								"events",
-								"{{ticketId}}"
+								"{{eventId}}"
 							]
 						}
 					},
@@ -446,14 +467,15 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/users/{{userId}}",
+							"raw": "{{host}}:{{port}}/api/events/{{eventId}}",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"users",
-								"{{userId}}"
+								"api",
+								"events",
+								"{{eventId}}"
 							]
 						}
 					},
