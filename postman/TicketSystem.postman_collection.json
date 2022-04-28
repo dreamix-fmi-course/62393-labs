@@ -235,7 +235,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"a5c8a839-3e26-402b-bd54-066db6036a27\",\r\n    \"price\": 0.9899999999999999911182158029987476766109466552734375,\r\n    \"row\": 0,\r\n    \"seat\": 0,\r\n    \"userDto\": {\r\n        \"id\": \"74c9986c-345b-4cb0-8252-d5eee3309d47\",\r\n        \"username\": \"UserName\",\r\n        \"email\": \"Email@mail.org\"\r\n    },\r\n    \"eventDto\": {\r\n        \"id\": \"78006bac-e74d-4578-8102-0fa28ebab557\",\r\n        \"name\": \"Name\",\r\n        \"date\": \"2022-05-14T21:10:15.7622394\",\r\n        \"description\": \"Description\"\r\n    }\r\n}",
+							"raw": "{\r\n    \"price\": 0.99,\r\n    \"row\": 0,\r\n    \"seat\": 0,\r\n    \"userDto\": {\r\n        \"id\": \"d0a47402-6d29-4313-8c02-5182d6c11a48\",\r\n        \"username\": \"retarded\",\r\n        \"email\": \"retard@dumb.com\"\r\n    },\r\n    \"eventDto\": {\r\n        \"id\": \"a0827b9c-0ada-4432-b447-e618a7994596\",\r\n        \"name\": \"Event\",\r\n        \"date\": \"2023-04-14T19:32:11.8274796\",\r\n        \"description\": \"Some event\"\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -303,14 +303,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/api/users/",
+							"raw": "{{host}}:{{port}}/api/tickets/",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}",
 							"path": [
 								"api",
-								"users",
+								"tickets",
 								""
 							]
 						}
@@ -377,6 +377,60 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "GetAllByUser",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/api/tickets/by-user/{{userId}}",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"tickets",
+								"by-user",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllByEvent",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}:{{port}}/api/tickets/by-event/{{eventId}}",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"tickets",
+								"by-event",
+								"{{eventId}}"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -390,7 +444,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Event\",\r\n    \"date\": \"2022-04-14T19:32:11.8274796\",\r\n    \"description\": \"Some event\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Event\",\r\n    \"date\": \"2021-04-14T19:32:11.8274796\",\r\n    \"description\": \"Some event\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -527,7 +581,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/api/events/between?from=2021-04-13&to=2021-04-15",
+							"raw": "{{host}}:{{port}}/api/events/between?from=2021-04-15&to=2021-06-13",
 							"host": [
 								"{{host}}"
 							],
@@ -540,11 +594,11 @@
 							"query": [
 								{
 									"key": "from",
-									"value": "2021-04-13"
+									"value": "2021-04-15"
 								},
 								{
 									"key": "to",
-									"value": "2021-04-15"
+									"value": "2021-06-13"
 								}
 							]
 						}
