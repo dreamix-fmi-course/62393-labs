@@ -2,7 +2,6 @@ package com.tickets.service;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.UUID;
@@ -101,11 +100,6 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public List<Event> getAllVisitedEventsInPastMonth() {
-        LocalDateTime now = LocalDateTime.now();
-        return this.ticketRepository.findAll().stream()
-                .map(t -> t.getEvent())
-                .distinct()
-                .filter(e -> e.getDate().compareTo(now.minusMonths(1)) >= 0 && e.getDate().compareTo(now) < 0)
-                .collect(Collectors.toList());
+        return this.ticketRepository.findAllVisitedEventsInPastMonth(LocalDate.now().minusMonths(1));
     }
 }

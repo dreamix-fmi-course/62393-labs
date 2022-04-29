@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.UUID;
+import java.time.LocalDate;
 
 @Repository
 public interface TicketRepository extends CrudRepository<Ticket, UUID> {
@@ -28,6 +29,6 @@ public interface TicketRepository extends CrudRepository<Ticket, UUID> {
 
     @Query(value = "SELECT new com.tickets.model.Event(e.id, e.name, e.date, e.description) FROM Ticket t\n" +
             "RIGHT JOIN Event e ON t.event.id = e.id\n" +
-            "WHERE e.date < CURRENT_DATE AND e.date > CURRENT_DATE - INTERVAL '1 MONTH'")
-    List<Event> findAllVisitedEventsInPastMonth();
+            "WHERE e.date < CURRENT_DATE AND e.date > ?1")
+    List<Event> findAllVisitedEventsInPastMonth(LocalDate monthPrior);
 }

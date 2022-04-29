@@ -85,3 +85,7 @@
 2022-04-28T21:47:59.242 [INFO] Created ticket: Ticket{id=1f9a9eb1-7f1e-4903-9fe3-ed3f0388d6c7, price=0.99, row=0, seat=0, user=User{id=d0a47402-6d29-4313-8c02-5182d6c11a48, username='retarded', email='retard@dumb.com'}, event=Event{id=a0827b9c-0ada-4432-b447-e618a7994596, name='Event', date=2022-04-14T19:32:11.827480, description='Some event'}}
 2022-04-28T21:48:05.886 [INFO] Retrieving all visited events
 2022-04-28T21:48:15.291 [INFO] Retrieving all visited events
+2022-04-29T13:09:56.933 [INFO] Retrieving all users
+2022-04-29T13:10:08.640 [INFO] User to create: UserDto{id=null, username='retarded', email='retard@dumb.com'}
+2022-04-29T13:10:08.846 [INFO] Created user: User{id=9016fe1c-6dcf-4c45-ae37-655f6cda42d8, username='retarded', email='retard@dumb.com'}
+2022-04-29T13:10:12.006 [INFO] Retrieving all users
