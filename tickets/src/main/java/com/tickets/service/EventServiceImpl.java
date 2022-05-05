@@ -7,6 +7,8 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+import com.tickets.model.Performer;
+import com.tickets.repository.PerformerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,8 @@ public class EventServiceImpl implements EventService {
 
     @Autowired
     private EventRepository eventRepository;
+    @Autowired
+    private PerformerRepository performerRepository;
     @Autowired
     private Logger logger;
 
@@ -62,5 +66,18 @@ public class EventServiceImpl implements EventService {
     @Override
     public List<Event> findAllEventsBetweenDates(LocalDate from, LocalDate to) {
         return this.eventRepository.findAllBetween(from, to);
+    }
+
+    @Override
+    public List<Event> findAllEventsByPerformer(UUID performerId) {
+        return this.performerRepository.findById(performerId)
+                .orElseThrow(() -> new NoSuchElementException(NOT_FOUND_MESSAGE))
+                .getEvents().stream().collect(Collectors.toList());
+    }
+
+    @Override
+    public void addPerformers(Event event, List<Performer> performers) {
+        event.getPerformers().addAll(performers);
+        this.eventRepository.save(event);
     }
 }

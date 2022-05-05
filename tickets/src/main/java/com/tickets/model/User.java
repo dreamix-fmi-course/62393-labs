@@ -1,18 +1,19 @@
 package com.tickets.model;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
-
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
+import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Set;
+import java.util.UUID;
 
 @Getter
 @Setter
 @Entity
+@EqualsAndHashCode
+@ToString
 @Table(name="users")
 public class User {
 
@@ -27,8 +28,8 @@ public class User {
     @Column(name = "email", nullable=false, length=64, unique=true)
     private String email;
 
-    @OneToMany(mappedBy = "user")
-    private List<Ticket> tickets;
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private Set<Ticket> tickets;
 
     public User() {}
 
@@ -45,27 +46,5 @@ public class User {
     @PrePersist
     private void onCreate() {
         this.setId(UUID.randomUUID());
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(id, user.id);
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-            "id=" + id +
-            ", username='" + username + '\'' +
-            ", email='" + email + '\'' +
-            '}';
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, username, email);
     }
 }

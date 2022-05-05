@@ -20,9 +20,9 @@ public interface TicketService {
 
     List<Ticket> getAllTickets();
 
-    List<Ticket> findAllTicketsByUser(User id);
+    List<Ticket> findAllTicketsByUser(UUID userId);
 
-    List<Ticket> findAllTicketsByEvent(Event event);
+    List<Ticket> findAllTicketsByEvent(UUID eventId);
 
     List<Event> getAllVisitedEvents();
 

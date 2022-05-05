@@ -1,18 +1,21 @@
 package com.tickets.model;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Objects;
+import java.util.Set;
 import java.util.UUID;
 
 @Setter
 @Getter
 @Entity
+@EqualsAndHashCode
+@ToString
 @Table(name = "events")
 public class Event {
 
@@ -30,8 +33,11 @@ public class Event {
     @Column(name = "description", columnDefinition = "VARCHAR(255)")
     private String description;
 
-    @OneToMany(mappedBy = "event")
-    private List<Ticket> tickets;
+    @OneToMany(mappedBy = "event", fetch = FetchType.LAZY)
+    private Set<Ticket> tickets;
+
+    @ManyToMany(mappedBy = "events", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Performer> performers;
 
     public Event() {}
 
@@ -49,28 +55,5 @@ public class Event {
     @PrePersist
     private void onCreate() {
         this.setId(UUID.randomUUID());
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Event event = (Event) o;
-        return Objects.equals(id, event.id);
-    }
-
-    @Override
-    public String toString() {
-        return "Event{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", date=" + date +
-                ", description='" + description + '\'' +
-                '}';
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, date, description);
     }
 }

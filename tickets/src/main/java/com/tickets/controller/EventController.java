@@ -1,9 +1,12 @@
 package com.tickets.controller;
 
 import com.tickets.dto.EventDto;
+import com.tickets.dto.PerformerDto;
 import com.tickets.logger.Logger;
 import com.tickets.mapper.EventDtoMapper;
+import com.tickets.mapper.PerformerDtoMapper;
 import com.tickets.model.Event;
+import com.tickets.model.Performer;
 import com.tickets.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -23,7 +26,11 @@ public class EventController {
     @Autowired
     private EventDtoMapper mapper;
     @Autowired
+    private PerformerDtoMapper performerDtoMapper;
+    @Autowired
     private EventService eventService;
+    @Autowired
+    private PerformerController performerService;
     @Autowired
     private Logger logger;
 
@@ -122,6 +129,40 @@ public class EventController {
                 events,
                 HttpStatus.OK
         );
+    }
+
+    @GetMapping("/by-performer/{performerId}")
+    public ResponseEntity<List<EventDto>> findAllEventsByPerformer(@PathVariable UUID performerId) {
+        logger.info("Retrieving all events of performer with ID: " + performerId);
+        List<EventDto> events = this.eventService.findAllEventsByPerformer(performerId).stream()
+                .map(this.mapper::convertToDto)
+                .collect(Collectors.toList());
+        return new ResponseEntity(
+                events,
+                HttpStatus.OK
+        );
+    }
+
+
+    @PostMapping("{id}/performers")
+    public ResponseEntity addPerformers(@PathVariable UUID id, @RequestBody List<PerformerDto> performerDtos) {
+        try {
+            Event event = this.eventService.findById(id);
+            logger.info("Adding performers to event with ID: " + id);
+            List<Performer> performers = performerDtos.stream()
+                    .map(this.performerDtoMapper::convertToEntity)
+                    .collect(Collectors.toList());
+            this.eventService.addPerformers(event, performers);
+
+            return new ResponseEntity(
+                    HttpStatus.OK
+            );
+        } catch (Exception e) {
+            logger.error(e);
+            return new ResponseEntity(
+                    HttpStatus.NOT_FOUND
+            );
+        }
     }
 
     @GetMapping("template")

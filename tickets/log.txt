@@ -89,3 +89,46 @@
 2022-04-29T13:10:08.640 [INFO] User to create: UserDto{id=null, username='retarded', email='retard@dumb.com'}
 2022-04-29T13:10:08.846 [INFO] Created user: User{id=9016fe1c-6dcf-4c45-ae37-655f6cda42d8, username='retarded', email='retard@dumb.com'}
 2022-04-29T13:10:12.006 [INFO] Retrieving all users
+2022-05-05T18:24:09.073 [INFO] Retrieving all performers
+2022-05-05T18:24:25.512 [INFO] Performer to create: com.tickets.dto.PerformerDto@be18ef4
+2022-05-05T18:24:25.609 [INFO] Created performer: Performer(id=582268bd-d294-44c3-abc2-b98bea27447f, name=PerformerName, stageName=StageName, stageAge=20, events=null)
+2022-05-05T18:24:28.854 [INFO] Retrieving all performers
+2022-05-05T19:08:12.916 [INFO] Performer to create: com.tickets.dto.PerformerDto@2f304c75
+2022-05-05T19:08:13.078 [INFO] Created performer: Performer(id=bfeb5611-f3e7-4726-b639-357c9916e552, name=PerformerName, stageName=StageName, stageAge=20, events=null)
+2022-05-05T20:20:11.011 [INFO] Retrieving all performers
+2022-05-05T20:20:28.189 [INFO] Performer to create: PerformerDto(id=null, name=asd, stageName=ASD, stageAge=20)
+2022-05-05T20:20:28.304 [INFO] Created performer: Performer(id=1e031948-9ce1-406a-808f-83d469104948, name=asd, stageName=ASD, stageAge=20, events=null)
+2022-05-05T20:21:19.591 [INFO] Retrieving all events
+2022-05-05T20:21:30.801 [INFO] Event to create: EventDto(id=null, name=Event, date=2022-04-14T19:32:11.827479600, description=Some event)
+2022-05-05T20:21:30.828 [INFO] Created event: Event(id=76ca3084-7ad1-4e21-82e6-8e1648a57638, name=Event, date=2022-04-14T19:32:11.827479600, description=Some event, tickets=null, performers=null)
+2022-05-05T20:21:31.939 [INFO] Event to create: EventDto(id=null, name=Event, date=2022-04-14T19:32:11.827479600, description=Some event)
+2022-05-05T20:21:31.945 [INFO] Created event: Event(id=68d75fa1-1057-4def-b305-6732afab727a, name=Event, date=2022-04-14T19:32:11.827479600, description=Some event, tickets=null, performers=null)
+2022-05-05T20:21:32.527 [INFO] Event to create: EventDto(id=null, name=Event, date=2022-04-14T19:32:11.827479600, description=Some event)
+2022-05-05T20:21:32.531 [INFO] Created event: Event(id=132e4d4b-5184-4ab3-85a4-0cf817ecb62c, name=Event, date=2022-04-14T19:32:11.827479600, description=Some event, tickets=null, performers=null)
+2022-05-05T20:21:33.082 [INFO] Event to create: EventDto(id=null, name=Event, date=2022-04-14T19:32:11.827479600, description=Some event)
+2022-05-05T20:21:33.092 [INFO] Created event: Event(id=ff86f746-c9ef-4483-82e1-43516b428398, name=Event, date=2022-04-14T19:32:11.827479600, description=Some event, tickets=null, performers=null)
+2022-05-05T20:21:36.576 [INFO] Retrieving all events
+2022-05-05T20:22:06.919 [INFO] Retrieving all performers
+2022-05-05T20:22:19.666 [INFO] Adding events to performer with ID: 1e031948-9ce1-406a-808f-83d469104948
+2022-05-05T20:22:26.833 [INFO] Retrieving all performers
+2022-05-05T20:23:57.356 [INFO] Retrieving all performers of event with ID: 68d75fa1-1057-4def-b305-6732afab727a
+2022-05-05T20:31:26.951 [INFO] Event to create: EventDto(id=null, name=Event, date=2022-04-14T19:32:11.827479600, description=Some event)
+2022-05-05T20:31:27.099 [INFO] Created event: Event(id=816f8fdb-c594-408e-adfb-ef46d0241b1d, name=Event, date=2022-04-14T19:32:11.827479600, description=Some event, tickets=null, performers=null)
+2022-05-05T20:32:01.841 [INFO] Performer to create: PerformerDto(id=null, name=asd, stageName=ASD, stageAge=20)
+2022-05-05T20:32:01.875 [INFO] Created performer: Performer(id=2e1694fe-520a-4fe0-a6dd-0ed3065756da, name=asd, stageName=ASD, stageAge=20, events=null)
+2022-05-05T20:32:02.664 [INFO] Performer to create: PerformerDto(id=null, name=asd, stageName=ASD, stageAge=20)
+2022-05-05T20:32:02.669 [INFO] Created performer: Performer(id=89d86dd5-712e-43d7-b58f-e1cf2b05f989, name=asd, stageName=ASD, stageAge=20, events=null)
+2022-05-05T20:32:03.160 [INFO] Performer to create: PerformerDto(id=null, name=asd, stageName=ASD, stageAge=20)
+2022-05-05T20:32:03.166 [INFO] Created performer: Performer(id=473a001d-37d0-4934-a1d6-5501a9b794eb, name=asd, stageName=ASD, stageAge=20, events=null)
+2022-05-05T20:32:03.625 [INFO] Performer to create: PerformerDto(id=null, name=asd, stageName=ASD, stageAge=20)
+2022-05-05T20:32:03.629 [INFO] Created performer: Performer(id=ed1df1ee-8e8e-4a9e-a49f-4e0b6a0b2a66, name=asd, stageName=ASD, stageAge=20, events=null)
+2022-05-05T20:32:04.062 [INFO] Performer to create: PerformerDto(id=null, name=asd, stageName=ASD, stageAge=20)
+2022-05-05T20:32:04.066 [INFO] Created performer: Performer(id=41b1022d-1641-40c8-9409-a1c9ee640850, name=asd, stageName=ASD, stageAge=20, events=null)
+2022-05-05T20:32:05.574 [INFO] Retrieving all performers
+2022-05-05T20:34:07.920 [ERROR] java.util.NoSuchElementException: Event not found.
+2022-05-05T20:34:34.075 [INFO] Retrieving all events
+2022-05-05T20:34:48.077 [INFO] Adding performers to event with ID: 816f8fdb-c594-408e-adfb-ef46d0241b1d
+2022-05-05T20:36:11.592 [INFO] Retrieving all performers of event with ID: 816f8fdb-c594-408e-adfb-ef46d0241b1d
+2022-05-05T20:39:23.755 [INFO] Adding performers to event with ID: 816f8fdb-c594-408e-adfb-ef46d0241b1d
+2022-05-05T20:39:25.132 [INFO] Adding performers to event with ID: 816f8fdb-c594-408e-adfb-ef46d0241b1d
+2022-05-05T20:39:25.694 [INFO] Adding performers to event with ID: 816f8fdb-c594-408e-adfb-ef46d0241b1d

@@ -1,11 +1,16 @@
 package com.tickets.dto;
 
 import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Getter
+@Setter
+@ToString
 public class EventDto {
     private UUID id;
     private String name;
@@ -17,15 +22,5 @@ public class EventDto {
         this.name = name;
         this.date = date;
         this.description = description;
-    }
-
-    @Override
-    public String toString() {
-        return "EventDto{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", date=" + date +
-                ", description='" + description + '\'' +
-                '}';
     }
 }

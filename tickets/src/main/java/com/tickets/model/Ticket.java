@@ -1,18 +1,19 @@
 package com.tickets.model;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.Cascade;
+import lombok.ToString;
 
 import javax.persistence.*;
-import org.hibernate.annotations.CascadeType;
 import java.math.BigDecimal;
-import java.util.Objects;
 import java.util.UUID;
 
 @Getter
 @Setter
 @Entity
+@EqualsAndHashCode
+@ToString
 @Table(name = "tickets")
 public class Ticket {
 
@@ -56,30 +57,5 @@ public class Ticket {
     @PrePersist
     private void onCreate() {
         this.setId(UUID.randomUUID());
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Ticket ticket = (Ticket) o;
-        return Objects.equals(id, ticket.id);
-    }
-
-    @Override
-    public String toString() {
-        return "Ticket{" +
-                "id=" + id +
-                ", price=" + price +
-                ", row=" + row +
-                ", seat=" + seat +
-                ", user=" + user +
-                ", event=" + event +
-                '}';
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, price, row, seat, user, event);
     }
 }

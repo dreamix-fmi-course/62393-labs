@@ -1,13 +1,15 @@
 package com.tickets.dto;
 
-import com.tickets.model.Event;
-import com.tickets.model.User;
 import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
 @Getter
+@Setter
+@ToString
 public class TicketDto {
     private UUID id;
     private BigDecimal price;
@@ -23,17 +25,5 @@ public class TicketDto {
         this.seat = seat;
         this.userDto = userDto;
         this.eventDto = eventDto;
-    }
-
-    @Override
-    public String toString() {
-        return "TicketDto{" +
-                "id=" + id +
-                ", price=" + price +
-                ", row=" + row +
-                ", seat=" + seat +
-                ", userDto=" + userDto +
-                ", eventDto=" + eventDto +
-                '}';
     }
 }

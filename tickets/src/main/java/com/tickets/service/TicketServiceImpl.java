@@ -84,13 +84,13 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
-    public List<Ticket> findAllTicketsByUser(User user) {
-        return this.ticketRepository.findAllByUser(user.getId());
+    public List<Ticket> findAllTicketsByUser(UUID userId) {
+        return this.ticketRepository.findAllByUser(userId);
     }
 
     @Override
-    public List<Ticket> findAllTicketsByEvent(Event event) {
-        return this.ticketRepository.findAllByEvent(event.getId());
+    public List<Ticket> findAllTicketsByEvent(UUID eventId) {
+        return this.ticketRepository.findAllByEvent(eventId);
     }
 
     @Override
