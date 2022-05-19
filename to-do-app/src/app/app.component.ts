@@ -6,12 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'to-do-app';
+  title: string = 'to-do-app';
   name: string = 'name';
-  test = 1;
+  test: number = 1;
+  showItem: boolean = false;
 
   public onClick() {
     console.log('clicked');
     console.log(this.name);
+  }
+
+  public inputEvent(event: any) {
+      console.log(event.target.value);
+      this.name = event.target.value;
   }
 }
